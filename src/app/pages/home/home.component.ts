@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {observable} from "rxjs";
+import { SearchResponseModel } from 'src/app/models/search-response';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +9,7 @@ import {observable} from "rxjs";
 })
 export class HomeComponent implements OnInit {
   movieName: string = '';
-  response : any;
+  response : SearchResponseModel | undefined;
   constructor(private http: HttpClient) {
 
   }
@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
   search () {
-    this.http.get('http://www.omdbapi.com/?apikey=c2a192a3&s=' + this.movieName).subscribe(
+    this.http.get<SearchResponseModel>('http://www.omdbapi.com/?apikey=c2a192a3&s=' + this.movieName).subscribe(
       (response) => {
         this.response = response;
         console.log(response)
