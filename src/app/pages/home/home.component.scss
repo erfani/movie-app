@@ -2,3 +2,20 @@
   padding: 60px 0;
   width: 100%;
 }
+.movie-card {
+  position: relative;
+  margin-bottom: 2rem;
+  img {
+    width: 100%;
+  }
+  .movie-type {
+    position: absolute;
+    top: 0;
+    left:12px;
+    text-transform: uppercase;
+    background: #ff5959;
+    padding: 10px;
+    font-size: 0.7rem;
+    color: #fff;
+  }
+}

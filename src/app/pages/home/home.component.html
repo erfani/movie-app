@@ -3,25 +3,22 @@
     <div class="row justify-content-center">
       <div class="col">
         <form class="d-flex">
-          <input [(ngModel)]="movieName" [ngModelOptions]="{standalone: true}" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <input [(ngModel)]="movieName" [ngModelOptions]="{standalone: true}" class="form-control me-2" type="search"
+                 placeholder="Search" aria-label="Search">
           <button (click)="search()" class="btn btn-outline-success" type="submit">Search</button>
         </form>
-        <div *ngIf="response">
-          <div *ngFor="let item of response.Search">something {{item.Title}}  </div>
-        </div>
       </div>
     </div>
   </div>
-<!--</section>-->
-<!--<section class="home-cards">-->
-<!--  <div class="container">-->
-<!--    <div class="row">-->
-<!--      <div class="col">-->
-<!--        <img src="assets/images/sampleimage.jpg" alt="">-->
-<!--        <h3 class="movietitle">{{response.title}}-->
-<!--        </h3>-->
-
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</section>-->
+</section>
+<section class="home-cards" *ngIf="response">
+  <div class="container">
+    <div class="row">
+      <div class="col-3 movie-card" *ngFor="let item of response.Search">
+        <img [src]="item.Poster" alt="" class="src">
+        <div class="movie-type">{{item.Type}}</div>
+        <div class="movie-title"> {{item.Title}} ({{item.Year}})</div>
+      </div>
+    </div>
+  </div>
+</section>

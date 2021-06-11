@@ -5,15 +5,14 @@ import {HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
 
 
-
 @NgModule({
   declarations: [
-    HomeComponent,
+    HomeComponent
   ],
   imports: [
     CommonModule,
     HttpClientModule,
-    FormsModule,
+    FormsModule
   ],
   exports: [
     HomeComponent
