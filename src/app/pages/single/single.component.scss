@@ -1,0 +1,48 @@
+.single-movies {
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  .poster-part {
+    background-image: url("../../../assets/images/single-bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 300px;
+    padding-top: 4rem;
+    margin-bottom: -4rem;
+  }
+
+  img {
+    border-radius: 8px;
+  }
+  .content-part {
+    font-weight: 100;
+    .title {
+      font-size: 1.8rem;
+    }
+    .cast {
+      margin-top: 1rem;
+      padding-right: 50%;
+    }
+    .plot {
+      .details{
+        font-size: 0.8rem;
+        color: #3c3c3c;
+      }
+      padding-right: 1rem;
+      p {
+        margin-top: 1rem;
+        font-size: 1.2rem;
+      }
+      ul {
+        margin-top: 0.8rem;
+      }
+    }
+    .scores {
+      margin-top: 1.4rem;
+      ul {
+        margin-top: 1rem;
+      }
+    }
+  }
+}

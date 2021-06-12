@@ -9,7 +9,7 @@ import { SingleComponent } from "./single.component";
     SingleComponent,
   ],
   imports: [
-    CommonModule
+    CommonModule,
   ],
   exports: [
     SingleComponent,

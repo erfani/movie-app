@@ -1,21 +1,30 @@
 .search-bar {
-  padding: 60px 0;
   width: 100%;
+  padding: 60px 0;
 }
 .movie-card {
   position: relative;
   margin-bottom: 2rem;
+
+  &:hover {
+    cursor: pointer;
+  }
+  .movie-title {
+    margin-top: 1rem;
+
+  }
+
   img {
     width: 100%;
   }
   .movie-type {
     position: absolute;
     top: 0;
-    left:12px;
-    text-transform: uppercase;
-    background: #ff5959;
+    left: 12px;
     padding: 10px;
-    font-size: 0.7rem;
     color: #fff;
+    font-size: 0.7rem;
+    background: #ff5959;
+    text-transform: uppercase;
   }
 }

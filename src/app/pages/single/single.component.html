@@ -1,1 +1,39 @@
-<p>single works!</p>
+<section class="single-movies" *ngIf="itemResponse">
+  <div class="poster-part">
+  </div>
+<div class="content-part">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-6">
+        <span class="title">{{itemResponse.Title}}</span> ({{itemResponse.Year}})
+        <div class="plot">
+          <span class="details">
+            Duration: {{itemResponse.Runtime}} | Genre: {{itemResponse.Genre}} | Language: {{itemResponse.Language}} | Country: {{itemResponse.Country}}
+          </span>
+          <p>{{itemResponse.Plot}}</p>
+        </div>
+        <div>
+          <strong>Awards: </strong>{{itemResponse.Awards}}
+        </div>
+        <div class="scores">
+          <div class="title">Movie Scores: </div>
+          <ul *ngFor="let ratingItem of itemResponse.Ratings">
+            <li><strong>{{ratingItem.Source}}</strong>: {{ratingItem.Value}}</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-6">
+        <img [src]="itemResponse.Poster" alt="movie-poster">
+        <div class="cast">
+          <ul>
+            <li><strong>Director: </strong>{{itemResponse.Director}}</li>
+            <li><strong>Writer: </strong>{{itemResponse.Writer}}</li>
+            <li><strong>Actors: </strong> {{itemResponse.Actors}}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</section>

@@ -1,5 +1,6 @@
+import { RatingTypeModel } from "./ratings-type-model"
 export interface MovieSingleData {
-  Title: string,
+  Title: string | undefined,
   Year: number,
   Rated: string,
   Released: string,
@@ -13,6 +14,7 @@ export interface MovieSingleData {
   Country: string,
   Awards: string,
   Poster: string,
+  Ratings: RatingTypeModel[],
   Metascore: string,
   imdbRating: string,
   imdbVotes: string,

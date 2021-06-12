@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import { ActivatedRoute, Router } from '@angular/router';
 import { SearchResponseModel } from 'src/app/models/search-response';
+
+import { ApiService } from '../../api.service';
 import {SearchResultItemModel} from "../../models/search-result-item";
 
 @Component({
@@ -8,25 +10,40 @@ import {SearchResultItemModel} from "../../models/search-result-item";
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
+
 export class HomeComponent implements OnInit {
   movieName: string = '';
   response : SearchResponseModel | undefined;
-  movieItem : SearchResultItemModel[] | undefined;
-  constructor(private http: HttpClient) {
+  constructor(private api: ApiService, private router:Router, private route: ActivatedRoute) {}
 
+ ngOnInit() :void{
+
+   const movieName = this.route.snapshot.queryParamMap.get('name')
+   if (movieName!== null) {
+    this.search(movieName)
+   }
+
+ }
+  onClickSearch () {
+    if(this.response !== null) {
+      this.search(this.movieName)
+    }
+    else {
+      alert('not found')
+    }
   }
 
-  ngOnInit(): void {
-  }
-
-  search () {
-    this.http.get<SearchResponseModel>('http://www.omdbapi.com/?apikey=c2a192a3&s=' + this.movieName).subscribe(
-      (response) => {
-        this.response = response;
-        this.movieItem = response.Search;
-        console.log (this.movieItem)
-      }
-    )
+  search(movieName: string){
+    this.api.search(movieName).subscribe(response => {
+      this.response = response;
+      this.router.navigate(
+        ['/search'],
+        {
+          relativeTo: this.route,
+          queryParams: {name: movieName},
+          queryParamsHandling: 'merge', // remove to replace all query params by provided
+        });
+    })
   }
 
 }

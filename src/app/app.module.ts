@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import {HomeModule} from "./pages/home/home.module";
 import {HttpClientModule} from "@angular/common/http";
 import {SingleModule} from "./pages/single/single.module";
+import { NgxBootstrapIconsModule } from 'ngx-bootstrap-icons';
+import { allIcons } from 'ngx-bootstrap-icons';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,8 @@ import {SingleModule} from "./pages/single/single.module";
     AppRoutingModule,
     HomeModule,
     HttpClientModule,
-    SingleModule
+    SingleModule,
+    NgxBootstrapIconsModule.pick(allIcons)
   ],
   providers: [],
   bootstrap: [AppComponent]

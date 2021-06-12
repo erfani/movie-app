@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import {HomeComponent} from "./home.component";
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
+import { AppRoutingModule } from 'src/app/app-routing.module';
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import {FormsModule} from "@angular/forms";
   imports: [
     CommonModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
   exports: [
     HomeComponent
