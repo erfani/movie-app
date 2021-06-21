@@ -8,10 +8,11 @@ import {HttpClientModule} from "@angular/common/http";
 import {SingleModule} from "./pages/single/single.module";
 import { NgxBootstrapIconsModule } from 'ngx-bootstrap-icons';
 import { allIcons } from 'ngx-bootstrap-icons';
+import { QuantityModule } from './pages/quantity/quantity.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -19,6 +20,7 @@ import { allIcons } from 'ngx-bootstrap-icons';
     HomeModule,
     HttpClientModule,
     SingleModule,
+    QuantityModule,
     NgxBootstrapIconsModule.pick(allIcons)
   ],
   providers: [],
