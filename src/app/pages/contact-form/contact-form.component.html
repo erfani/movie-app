@@ -1,0 +1,31 @@
+<section class="form-section">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)" autocomplete="off">
+          <div class="form-group">
+            <label for="nameInput">Name</label>
+            <input type="text" formControlName="name" class="form-control" id="nameInput" placeholder="enter your name">
+            <div class="form-error" *ngIf="myForm.get('name')?.invalid && (myForm.get('name')?.dirty)">
+              please enter your name
+            </div>
+            <label for="exampleInputEmail1">Email address</label>
+            <input formControlName="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+            <div class="form-error" *ngIf="myForm.get('email')?.invalid && (myForm.get('email')?.dirty)">
+              Please enter a valid email.
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="phone">phone</label>
+            <input type="phone" formControlName="phone" class="form-control" id="phone" placeholder="phone">
+            <div class="form-error" *ngIf="myForm.get('phone')?.invalid && (myForm.get('phone')?.dirty)">
+              Please enter a phone number.
+            </div>
+          </div>
+          <br>
+          <button type="submit" [disabled]="!myForm.valid" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

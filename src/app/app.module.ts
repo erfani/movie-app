@@ -9,7 +9,7 @@ import {SingleModule} from "./pages/single/single.module";
 import { NgxBootstrapIconsModule } from 'ngx-bootstrap-icons';
 import { allIcons } from 'ngx-bootstrap-icons';
 import { QuantityModule } from './pages/quantity/quantity.module';
-
+import { ContactFormModule } from './pages/contact-form/contact-form.module';
 @NgModule({
   declarations: [
     AppComponent
@@ -21,6 +21,7 @@ import { QuantityModule } from './pages/quantity/quantity.module';
     HttpClientModule,
     SingleModule,
     QuantityModule,
+    ContactFormModule,
     NgxBootstrapIconsModule.pick(allIcons)
   ],
   providers: [],

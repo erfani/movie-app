@@ -8,7 +8,7 @@ import { SearchResponseModel } from "./models/search-response";
   providedIn: 'root'
 })
 export class ApiService {
-  public baseUrl = 'http://www.omdbapi.com/?apikey=c2a192a3';
+  private baseUrl = 'http://www.omdbapi.com/?apikey=c2a192a3';
 
   constructor(private http: HttpClient) {}
 

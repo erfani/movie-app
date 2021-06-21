@@ -1,26 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-quantity',
   templateUrl: './quantity.component.html',
-  styleUrls: ['./quantity.component.scss']
+  styleUrls: ['./quantity.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class QuantityComponent implements OnInit {
-  erf: BehaviorSubject<number> = new BehaviorSubject<number>(10);
+export class QuantityComponent implements  OnDestroy {
+  private erf$: BehaviorSubject<number> = new BehaviorSubject<number>(10);
+  erfObservable$ = this.erf$.asObservable();
+
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnDestroy(): void {
+    this.erf$.complete();
   }
 
-  doPlus(){
-    let current = this.erf.getValue();
-    current++;
-    this.erf.next(current);
+    doPlus(){
+    this.erf$.next(this.erf$.getValue()+1);
   }
   doMinus(){
-    let current = this.erf.getValue();
-    current--;
-    this.erf.next(current);
+    this.erf$.next(this.erf$.getValue()-1);
   }
+
 }
