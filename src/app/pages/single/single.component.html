@@ -1,34 +1,34 @@
-<section class="single-movies" *ngIf="itemResponse">
+<section class="single-movies" *ngIf="{data:itemResponse$ | async} as movieData">
   <div class="poster-part">
   </div>
 <div class="content-part">
   <div class="container">
     <div class="row align-items-center">
       <div class="col-6">
-        <span class="title">{{itemResponse.Title}}</span> ({{itemResponse.Year}})
+        <span class="title">{{movieData.data?.Title}}</span> ({{movieData.data?.Year}})
         <div class="plot">
           <span class="details">
-            Duration: {{itemResponse.Runtime}} | Genre: {{itemResponse.Genre}} | Language: {{itemResponse.Language}} | Country: {{itemResponse.Country}}
+            Duration: {{movieData.data?.Runtime}} | Genre: {{movieData.data?.Genre}} | Language: {{movieData.data?.Language}} | Country: {{movieData.data?.Country}}
           </span>
-          <p>{{itemResponse.Plot}}</p>
+          <p>{{movieData.data?.Plot}}</p>
         </div>
         <div>
-          <strong>Awards: </strong>{{itemResponse.Awards}}
+          <strong>Awards: </strong>{{movieData.data?.Awards}}
         </div>
         <div class="scores">
           <div class="title">Movie Scores: </div>
-          <ul *ngFor="let ratingItem of itemResponse.Ratings">
+          <ul *ngFor="let ratingItem of movieData.data?.Ratings">
             <li><strong>{{ratingItem.Source}}</strong>: {{ratingItem.Value}}</li>
           </ul>
         </div>
       </div>
       <div class="col-6">
-        <img [src]="itemResponse.Poster" alt="movie-poster">
+        <img [src]="movieData.data?.Poster" alt="movie-poster">
         <div class="cast">
           <ul>
-            <li><strong>Director: </strong>{{itemResponse.Director}}</li>
-            <li><strong>Writer: </strong>{{itemResponse.Writer}}</li>
-            <li><strong>Actors: </strong> {{itemResponse.Actors}}</li>
+            <li><strong>Director: </strong>{{movieData.data?.Director}}</li>
+            <li><strong>Writer: </strong>{{movieData.data?.Writer}}</li>
+            <li><strong>Actors: </strong> {{movieData.data?.Actors}}</li>
           </ul>
         </div>
       </div>

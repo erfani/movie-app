@@ -1,3 +1,4 @@
+import { ChangeDetectionStrategy } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SearchResponseModel } from 'src/app/models/search-response';
@@ -8,7 +9,9 @@ import {SearchResultItemModel} from "../../models/search-result-item";
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
+
 })
 
 export class HomeComponent implements OnInit {
